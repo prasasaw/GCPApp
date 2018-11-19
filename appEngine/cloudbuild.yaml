@@ -5,5 +5,6 @@ steps:
 
 - id: 'deploy app'
   name: "gcr.io/cloud-builders/gcloud"
+  dir: 'appEngine'
   args: ['app', 'deploy', 'app.yaml']
 timeout: "1600s"
