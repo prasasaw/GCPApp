@@ -5,8 +5,11 @@ steps:
 
 - id: 'build docker image'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/hello_npm', '.']
-images: ['gcr.io/$PROJECT_ID/hello_npm']
+  args: ['build', 'gcr.io/$PROJECT_ID/hello_npm', '.']
+
+- id: 'push to registry'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/hello_npm']
 
 - id: 'deploy'
   name: 'gcr.io/cloud-builders/gcloud'
