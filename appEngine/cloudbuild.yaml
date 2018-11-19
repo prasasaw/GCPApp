@@ -8,5 +8,5 @@ steps:
   args: ['run', 'build']
 
 - id: 'Deploy'
-  name: 'gcr.io/prasad-gcp2-project/appEngine'
+  name: 'gcr.io/prasad-gcp3-project/appEngine'
   args: ['deploy', '-P', 'myAppEngine', '--non-interactive']
