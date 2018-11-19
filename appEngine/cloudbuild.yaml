@@ -1,6 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/npm'
+- id: 'Install node_modules'
+  name: 'gcr.io/cloud-builders/npm'
   args: ['install']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/prasad-gcp2-project/hello_npm', '.']
-images: ['gcr.io/prasad-gcp2-project/hello_npm']
+
+- id: 'Build'
+  name: 'gcr.io/cloud-builders/npm'
+  args: ['run', 'build']
+
+- id: 'Deploy'
+  name: 'gcr.io/prasad-gcp2-project/appEngine'
+  args: ['deploy', '-P', 'myAppEngine', '--non-interactive']
