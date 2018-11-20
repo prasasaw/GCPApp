@@ -3,8 +3,7 @@ steps:
   name: 'gcr.io/cloud-builders/npm'
   args: ['install']
 
-- id: 'deploy app'
+- id: 'deploy cloud functions'
   name: "gcr.io/cloud-builders/gcloud"
-  dir: 'appEngine'
-  args: ['app', 'deploy', 'app.yaml']
-timeout: "1600s"
+  dir: 'cloudFunctions'
+  args: ['functions','deploy','syncProducer','--source=.','--runtime=nodejs6','--trigger-http']
