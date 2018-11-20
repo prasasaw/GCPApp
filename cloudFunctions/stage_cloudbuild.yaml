@@ -1,0 +1,10 @@
+steps:
+- id: 'install npm'
+  name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
+
+- id: 'deploy app'
+  name: "gcr.io/cloud-builders/gcloud"
+  dir: 'appEngine'
+  args: ['app', 'deploy', 'app.yaml']
+timeout: "1600s"

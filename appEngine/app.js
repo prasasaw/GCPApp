@@ -23,7 +23,7 @@ const app = express();
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send('Hello to GCP world!')
+    .send('Hello to GCP world everyone!')
     .end();
 });
 
