@@ -5,7 +5,7 @@ const pubsub = new PubSub();
 const topic = pubsub.topic('syncCustomer');
 const publisher = topic.publisher();
 
-exports.produce = (req, res) => {
+exports.syncProducer = (req, res) => {
   res.set('Content-Type', 'application/json');
   let customer = req.query.customer || req.body.customer;
   publisher.publish(Buffer.from(JSON.stringify(customer)), (err) => {
